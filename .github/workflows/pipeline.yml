@@ -1,4 +1,4 @@
-name: tests
+name: Release
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
@@ -23,3 +23,23 @@ jobs:
       run: dotnet build --no-restore --configuration Debug
     - name: Test
       run: dotnet test --no-build --verbosity normal
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore --configuration Release
+    - name: Publish
+      run: dotnet publish --no-restore --no-build 
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        name: Peppermint.ReverseProxy
+
