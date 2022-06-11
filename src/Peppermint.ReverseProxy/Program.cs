@@ -10,8 +10,7 @@ var services = builder.Services;
 
 // Configuration
 var config = new ConfigurationBuilder()
-.AddJsonFile(Settings.AppSettingsFileName)
-.AddJsonFile(Settings.ReverseProxySettingsFile)
+.AddJsonFile(Settings.AppSettingsFileName, optional: false, reloadOnChange: true)
 .Build();
 
 // Logging
@@ -35,9 +34,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapReverseProxy();
 });
 
+app.Logger.LogInformation(Logs.Welcome);
 app.Run();
 
-public partial class Program 
-{ 
-    // void
-}
+public partial class Program { }

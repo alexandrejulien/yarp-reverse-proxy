@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Peppermint.ReverseProxy\Peppermint.ReverseProxy.csproj" />
+    <ProjectReference Include="..\..\src\Peppermint.ReverseProxy\Peppermint.ReverseProxy.csproj" />
   </ItemGroup>
 
 </Project>

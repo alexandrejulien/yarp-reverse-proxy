@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Peppermint.ReverseProxy", "src\Peppermint.ReverseProxy\Peppermint.ReverseProxy.csproj", "{9C251F8D-9F1F-4B89-BA28-394814D5BD48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peppermint.ReverseProxy.Tests", "Peppermint.ReverseProxy.Tests\Peppermint.ReverseProxy.Tests.csproj", "{3239DF7C-787D-41D0-8BAB-9331BB9203A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peppermint.ReverseProxy.Tests", "tests\Peppermint.ReverseProxy.Tests\Peppermint.ReverseProxy.Tests.csproj", "{3239DF7C-787D-41D0-8BAB-9331BB9203A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
