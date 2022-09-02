@@ -3,6 +3,11 @@ using Microsoft.VisualStudio.TestPlatform.TestHost;
 using NFluent;
 using Xunit;
 using Peppermint.ReverseProxy;
+using System.Net.Http;
+using System;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.AspNetCore.Hosting;
+using System.Net;
 
 namespace Peppermint.ReverseProxy.Tests
 {
@@ -17,7 +22,7 @@ namespace Peppermint.ReverseProxy.Tests
             {
                 builder.ConfigureServices(services =>
                 {
-
+                    
                 });
             });
         }
@@ -27,6 +32,19 @@ namespace Peppermint.ReverseProxy.Tests
         {
             Check.That(_host.Server)
                 .IsNotNull();
+        }
+
+        [Fact]
+        public void Ping()
+        {
+            var client = _host.Server.CreateClient();
+
+            var response = client.GetAsync("/")
+                .Result;
+
+            Check.That(response).IsNotNull();
+            Check.That(response.StatusCode)
+                .IsEqualTo(HttpStatusCode.OK);
         }
     }
 }

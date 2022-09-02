@@ -1,40 +1,44 @@
 using Peppermint.ReverseProxy;
+using Peppermint.ReverseProxy.Configuration;
 using Peppermint.ReverseProxy.Resources;
 using Serilog;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Peppermint.ReverseProxy.Tests")]
-
-var builder = WebApplication.CreateBuilder(args);
-var services = builder.Services;
-
-// Configuration
-var config = new ConfigurationBuilder()
-.AddJsonFile(Settings.AppSettingsFileName, optional: false, reloadOnChange: true)
-.Build();
-
-// Logging
-var logger = new LoggerConfiguration()
-.ReadFrom.Configuration(config)
-.CreateLogger();
-
-// Yarp Configuration
-var yarpConfig = builder.Configuration.GetSection(Settings.YarpConfigSection);
-
-// Dependency injection
-services.AddLogging(config => config.AddSerilog(logger));
-services.AddReverseProxy().LoadFromConfig(yarpConfig);
-
-var app = builder.Build();
-
-// Register the reverse proxy routes
-app.UseRouting();
-app.UseEndpoints(endpoints =>
+namespace Peppermint.ReverseProxy
 {
-    endpoints.MapReverseProxy();
-});
+    /// <summary>
+    /// Startup program.
+    /// </summary>
+    public partial class Program
+    {
+        /// <summary>
+        /// Defines the entry point of the application.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
+        private static void Main(string[] args)
+        {
+            var builder = WebApplication.CreateBuilder(args);
+            var services = builder.Services;
 
-app.Logger.LogInformation(Logs.Welcome);
-app.Run();
+            // Configuration
+            var config = ReverseProxyConfiguration.Configure();
 
-public partial class Program { }
+            // Dependencies injection
+            services.AddDefaultLogging(config);
+            services.AddYarpReverseProxy(builder);
+
+            var app = builder.Build();
+
+            // Register the reverse proxy routes
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapReverseProxy();
+            });
+
+            app.Logger.LogInformation(message: Logs.Welcome);
+            app.Run();
+        }
+    }
+}
