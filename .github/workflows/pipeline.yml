@@ -8,9 +8,7 @@ on:
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -25,7 +23,6 @@ jobs:
       run: dotnet test --no-build --verbosity normal
   build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -42,7 +39,6 @@ jobs:
       run: dotnet publish src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj --runtime linux-x64 --self-contained true -o app/Linuxx64
     - name: Publish MacOS
       run: dotnet publish src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj --runtime osx-x64 --self-contained true -o app/MacOS
-    -
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.0
       with:
