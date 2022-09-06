@@ -36,37 +36,44 @@ jobs:
     - name: Publish Portable
       run: dotnet publish src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj  -o app/Portable
     - name: Publish Win x86
-      run: dotnet publish src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj --runtime win-x86 --self-contained true -o app/Win-x86
+      run: dotnet publish src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj --runtime win-x86 --self-contained true -p:PublishReadyToRun=true -o app/Win-x86
     - name: Publish Win x64
-      run: dotnet publish src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj --runtime win-x64 --self-contained true -o app/Win-x64   
+      run: dotnet publish src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj --runtime win-x64 --self-contained true -p:PublishReadyToRun=true -o app/Win-x64   
     - name: Publish Linux
-      run: dotnet publish src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj --runtime linux-x64 --self-contained true -o app/Linux-x64
+      run: dotnet publish src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj --runtime linux-x86 --self-contained true -p:PublishReadyToRun=true -o app/Linux-x86
+    - name: Publish Linux
+      run: dotnet publish src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj --runtime linux-x64 --self-contained true -p:PublishReadyToRun=true -o app/Linux-x64
     - name: Publish MacOS
-      run: dotnet publish src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj --runtime osx-x64 --self-contained true -o app/MacOS
+      run: dotnet publish src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj --runtime osx-x64 --self-contained true -p:PublishReadyToRun=true -o app/MacOS
     - name: Upload a Build Artifact Portable
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-win-x86
+        name: Peppermint.ReverseProxy-portable-dotnet
         path: app/Portable
     - name: Upload a Build Artifact Win-x86
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-win-x64
+        name: Peppermint.ReverseProxy-win-x86
         path: app/Win-x86
     - name: Upload a Build Artifact Win-x64
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-linux-x64
+        name: Peppermint.ReverseProxy-winx64
         path: app/Win-x64
+    - name: Upload a Build Artifact Linux-x86
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        name: Peppermint.ReverseProxy-linux-x86
+        path: app/Linux-x86
     - name: Upload a Build Artifact Linux-x64
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy
+        name: Peppermint.ReverseProxy-linux-x64
         path: app/Linux-x64
     - name: Upload a Build Artifact MacOS
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-macos
+        name: Peppermint.ReverseProxy-macos-x64
         path: app/MacOS
         
 
