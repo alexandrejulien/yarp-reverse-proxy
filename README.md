@@ -61,7 +61,8 @@
 ## About The Project
 
 Peppermint Reverse Proxy is a simple implementation of Microsoft Yarp Project (https://microsoft.github.io/reverse-proxy/). <br />
-It's a out of a box version of Yarp librairie, intergrated into a light asp.net application.
+It's a out of a box version of Microsoft Yarp Project library, intergrated into a light asp.net application.
+The objective is to propose a yarp reverse proxy without having to go through a development stage and only the configuration of yarp
 
 Multiples platforms are availables : 
 - Portable (.NET 6 Runtime dependency)
@@ -72,10 +73,16 @@ This a light out of the box reverse-proxy application which can be self hosted w
 <br />
 
 YARP offers :
-- HTTP/2 end to end
-- HTTP/3 will come with .NET 7 (non stable in .NET 6)
+- HTTP/2 end to end and gPRC capabilties
+- Websockets
+- HttpSys delegation (integration with Http.Sys and IIS)
+- HTTP/3 will come with .NET 7 (only preview in .NET 6)
 - Loadbalancing
 - A/B Switches
+- Health Checks
+- Transformations
+- TLS customizations
+- Middlewares
 - Logging
 - Tracing with OpenTelemetry
 
