@@ -2,7 +2,7 @@ name: Release
 
 on:
   push:
-    branches: [ "main", "feature/release-ci" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
