@@ -3,30 +3,44 @@ using Microsoft.VisualStudio.TestPlatform.TestHost;
 using NFluent;
 using Xunit;
 using Peppermint.ReverseProxy;
+using System.Net.Http;
+using System;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.AspNetCore.Hosting;
+using System.Net;
+using Microsoft.AspNetCore.Http;
+using Peppermint.ReverseProxy.Configuration;
+using Peppermint.ReverseProxy.Tests.Abstract;
 
 namespace Peppermint.ReverseProxy.Tests
 {
-    public class StartupTests
+
+    /// <summary>
+    /// Startup tests.
+    /// </summary>
+    public class StartupTests : BaseReverseProxyTest
     {
-        private readonly WebApplicationFactory<Program> _host;
-
-        public StartupTests()
+        /// <summary>
+        /// Startup test
+        /// </summary>
+        [Fact]
+        public void GivenReverseProxyThenStartup()
         {
-            // Arrange
-            _host = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
-            {
-                builder.ConfigureServices(services =>
-                {
-
-                });
-            });
+            Check.That(_factory.Server)
+                .IsNotNull();
         }
 
+        /// <summary>
+        /// Http Ping.
+        /// </summary>
         [Fact]
-        public void Startup()
+        public void GivenReverseProxyAndBaseUrlThenReturnPing()
         {
-            Check.That(_host.Server)
-                .IsNotNull();
+            var client = _factory.CreateDefaultClient();
+
+            var response = client.GetAsync($"{client.BaseAddress}")
+                .Result;
+            Check.That(response).IsNotNull();
         }
     }
 }
