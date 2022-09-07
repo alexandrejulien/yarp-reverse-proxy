@@ -8,43 +8,39 @@ using System;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.AspNetCore.Hosting;
 using System.Net;
+using Microsoft.AspNetCore.Http;
+using Peppermint.ReverseProxy.Configuration;
+using Peppermint.ReverseProxy.Tests.Abstract;
 
 namespace Peppermint.ReverseProxy.Tests
 {
-    public class StartupTests
+
+    /// <summary>
+    /// Startup tests.
+    /// </summary>
+    public class StartupTests : BaseReverseProxyTest
     {
-        private readonly WebApplicationFactory<Program> _host;
-
-        public StartupTests()
-        {
-            // Arrange
-            _host = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
-            {
-                builder.ConfigureServices(services =>
-                {
-                    
-                });
-            });
-        }
-
+        /// <summary>
+        /// Startup test
+        /// </summary>
         [Fact]
-        public void Startup()
+        public void GivenReverseProxyThenStartup()
         {
-            Check.That(_host.Server)
+            Check.That(_factory.Server)
                 .IsNotNull();
         }
 
+        /// <summary>
+        /// Http Ping.
+        /// </summary>
         [Fact]
-        public void Ping()
+        public void GivenReverseProxyAndBaseUrlThenReturnPing()
         {
-            var client = _host.Server.CreateClient();
+            var client = _factory.CreateDefaultClient();
 
-            var response = client.GetAsync("/")
+            var response = client.GetAsync($"{client.BaseAddress}")
                 .Result;
-
             Check.That(response).IsNotNull();
-            Check.That(response.StatusCode)
-                .IsEqualTo(HttpStatusCode.OK);
         }
     }
 }
