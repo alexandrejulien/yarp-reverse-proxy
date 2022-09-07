@@ -61,8 +61,16 @@
 ## About The Project
 
 Peppermint Reverse Proxy is a simple implementation of Microsoft Yarp Project (https://microsoft.github.io/reverse-proxy/). <br />
+It's a out of a box version of Yarp librairie, intergrated into a light asp.net application.
+
+Multiples platforms are availables : 
+- Portable (.NET 6 Runtime dependency)
+- Win (x86 / x64)
+- Linux (x64)
+- Mac OS (x64)
 This a light out of the box reverse-proxy application which can be self hosted with Kestrel Web Server (.NET Web Server) or with a IIS in replacement of ARR (Application Request Routing).
 <br />
+
 YARP supports :
 - HTTP/2 end to end
 - Loadbalancing
@@ -79,8 +87,6 @@ YARP supports :
 * [ASP.NET Core](https://github.com/dotnet/aspnetcore)
 * [YARP 1.1](https://microsoft.github.io/reverse-proxy/)
 * [.NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
-
-
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
