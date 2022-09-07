@@ -59,5 +59,7 @@ jobs:
       with:
         name: Peppermint.ReverseProxy-macos-x64
         path: app/MacOS
-        
-        
+    - name: GitHub Upload Release Artifacts
+      uses: Roang-zero1/github-upload-release-artifacts-action@v2.1.0
+      with:
+        created_tag: # optional, default is        
