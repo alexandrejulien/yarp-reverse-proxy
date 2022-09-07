@@ -71,8 +71,9 @@ Multiples platforms are availables :
 This a light out of the box reverse-proxy application which can be self hosted with Kestrel Web Server (.NET Web Server) or with a IIS in replacement of ARR (Application Request Routing).
 <br />
 
-YARP supports :
+YARP offers :
 - HTTP/2 end to end
+- HTTP/3 will come with .NET 7 (non stable in .NET 6)
 - Loadbalancing
 - A/B Switches
 - Logging
