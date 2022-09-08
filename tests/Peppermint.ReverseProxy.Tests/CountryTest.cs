@@ -1,4 +1,5 @@
-﻿using NFluent;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NFluent;
 using Peppermint.ReverseProxy.Tests.Abstract;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,6 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using Xunit;
 
 namespace Peppermint.ReverseProxy.Tests
 {
@@ -14,12 +14,13 @@ namespace Peppermint.ReverseProxy.Tests
     /// Country API test.
     /// </summary>
     /// <seealso cref="Peppermint.ReverseProxy.Tests.Abstract.BaseReverseProxyTest" />
+    [TestClass]
     public class CountryTest : BaseReverseProxyTest
     {
         /// <summary>
         /// Ping
         /// </summary>
-        [Fact]
+        [TestMethod]
         public void GivenCountryWhenCallApiThenReturnFrenchRepublic()
         {
             var client = _factory.CreateDefaultClient();
