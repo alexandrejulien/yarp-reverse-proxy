@@ -1,20 +1,9 @@
-using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
-using NFluent;
-using Peppermint.ReverseProxy;
-using System.Net.Http;
-using System;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.AspNetCore.Hosting;
-using System.Net;
-using Microsoft.AspNetCore.Http;
-using Peppermint.ReverseProxy.Configuration;
-using Peppermint.ReverseProxy.Tests.Abstract;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NFluent;
+using Peppermint.ReverseProxy.Tests.Abstract;
 
 namespace Peppermint.ReverseProxy.Tests
 {
-
     /// <summary>
     /// Startup tests.
     /// </summary>
