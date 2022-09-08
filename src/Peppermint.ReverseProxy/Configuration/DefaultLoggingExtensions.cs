@@ -14,7 +14,7 @@ namespace Peppermint.ReverseProxy.Configuration
         /// <param name="config">The configuration.</param>
         /// <returns></returns>
         public static IServiceCollection AddDefaultLogging(
-            this IServiceCollection services, 
+            this IServiceCollection services,
             IConfiguration config)
         {
             // Logging

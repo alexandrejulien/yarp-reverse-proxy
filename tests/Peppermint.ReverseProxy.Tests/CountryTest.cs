@@ -2,11 +2,8 @@
 using NFluent;
 using Peppermint.ReverseProxy.Tests.Abstract;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Peppermint.ReverseProxy.Tests
 {
@@ -34,6 +31,5 @@ namespace Peppermint.ReverseProxy.Tests
             Check.That(response.Content.ReadAsStringAsync().Result)
                 .Contains("French Republic");
         }
-
     }
 }

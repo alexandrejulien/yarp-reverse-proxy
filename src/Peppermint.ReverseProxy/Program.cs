@@ -1,10 +1,9 @@
-using Peppermint.ReverseProxy;
 using Peppermint.ReverseProxy.Configuration;
 using Peppermint.ReverseProxy.Resources;
-using Serilog;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Peppermint.ReverseProxy.Tests")]
+
 namespace Peppermint.ReverseProxy
 {
     /// <summary>
