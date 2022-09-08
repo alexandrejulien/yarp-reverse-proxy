@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using NFluent;
-using Xunit;
 using Peppermint.ReverseProxy;
 using System.Net.Http;
 using System;
@@ -11,6 +10,7 @@ using System.Net;
 using Microsoft.AspNetCore.Http;
 using Peppermint.ReverseProxy.Configuration;
 using Peppermint.ReverseProxy.Tests.Abstract;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Peppermint.ReverseProxy.Tests
 {
@@ -18,12 +18,13 @@ namespace Peppermint.ReverseProxy.Tests
     /// <summary>
     /// Startup tests.
     /// </summary>
+    [TestClass]
     public class StartupTests : BaseReverseProxyTest
     {
         /// <summary>
         /// Startup test
         /// </summary>
-        [Fact]
+        [TestMethod]
         public void GivenReverseProxyThenStartup()
         {
             Check.That(_factory.Server)
@@ -33,7 +34,7 @@ namespace Peppermint.ReverseProxy.Tests
         /// <summary>
         /// Http Ping.
         /// </summary>
-        [Fact]
+        [TestMethod]
         public void GivenReverseProxyAndBaseUrlThenReturnPing()
         {
             var client = _factory.CreateDefaultClient();
