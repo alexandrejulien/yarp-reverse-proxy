@@ -18,4 +18,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore --configuration Debug
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test tests/Peppermint.ReverseProxy.Tests/Peppermint.ReverseProxy.Tests.csproj --verbosity normal
