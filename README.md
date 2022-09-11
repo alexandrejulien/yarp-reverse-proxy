@@ -88,7 +88,18 @@ YARP offers :
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Benchmarks
 
+YARP reverse proxy offers good performances for many workloads but you will loose on heavy workloads without having more resources.
+
+| Case                                                              | Samples | Average time (ms) | Minimum time (ms) | Max time (ms) | Throughput (HTTP call/sec) | Thread(s) |
+|-------------------------------------------------------------------|---------|-------------------|-------------------|---------------|----------------------------|-----------|
+| StaticWebApp   - (direct)                                         | 10000   | 0                 | 0                 | 4             |           830,77           | 1         |
+| StaticWebApp   - ARR (IIS)                                        | 10000   | 1                 | 0                 | 4             |           635,93           | 1         |
+| StaticWebApp -Peppermint Reverse   Proxy (Portable) YARP with IIS | 10000   | 1                 | 0                 | 5             |           627,78           | 1         |
+| ApiWebApp   (direct)                                              | 10000   | 0                 | 0                 | 4             |           3935,45          | 1         |
+| ApiWebApp - ARR (IIS)                                             | 10000   | 0                 | 0                 | 4             |           1590,07          | 1         |
+| ApiWebApp   - PpmintRV Yarp on IIS                                | 10000   | 0                 | 0                 | 5             |           1093,37          | 1         |
 
 ### Built With
 
