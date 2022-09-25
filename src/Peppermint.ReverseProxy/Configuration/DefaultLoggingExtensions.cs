@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using Microsoft.AspNetCore.HttpLogging;
+using Serilog;
 
 namespace Peppermint.ReverseProxy.Configuration
 {
@@ -24,7 +25,6 @@ namespace Peppermint.ReverseProxy.Configuration
 
             // Add logger to logging service.
             services.AddLogging(config => config.AddSerilog(logger));
-
             return services;
         }
     }

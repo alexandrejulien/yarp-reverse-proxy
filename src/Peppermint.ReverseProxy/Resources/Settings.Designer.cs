@@ -70,6 +70,15 @@ namespace Peppermint.ReverseProxy.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /healthz.
+        /// </summary>
+        public static string HealthEndpoint {
+            get {
+                return ResourceManager.GetString("HealthEndpoint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to proxysettings.json.
         /// </summary>
         public static string ReverseProxySettingsFile {

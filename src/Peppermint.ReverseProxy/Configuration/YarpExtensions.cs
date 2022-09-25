@@ -1,4 +1,6 @@
-﻿using Peppermint.ReverseProxy.Resources;
+﻿using Microsoft.AspNetCore.WebSockets;
+using Microsoft.Extensions.DependencyInjection;
+using Peppermint.ReverseProxy.Resources;
 
 namespace Peppermint.ReverseProxy.Configuration
 {
@@ -20,6 +22,11 @@ namespace Peppermint.ReverseProxy.Configuration
             // Yarp Configuration
             var yarpConfig = builder.Configuration.GetSection(Settings.YarpConfigSection);
 
+            services.AddHealthChecks();
+            services.AddResponseCompression();
+
+
+            // Reverse proxy
             services.AddReverseProxy().LoadFromConfig(yarpConfig);
             return services;
         }

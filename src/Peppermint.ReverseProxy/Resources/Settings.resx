@@ -121,6 +121,9 @@
     <value>appsettings.json</value>
     <comment>AppSettings default filename</comment>
   </data>
+  <data name="HealthEndpoint" xml:space="preserve">
+    <value>/healthz</value>
+  </data>
   <data name="ReverseProxySettingsFile" xml:space="preserve">
     <value>proxysettings.json</value>
     <comment>Reverse Proxy settings filename</comment>
