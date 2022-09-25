@@ -61,7 +61,7 @@ namespace Peppermint.ReverseProxy.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 🚀 Peppermint reverse-proxy started !.
+        ///   Looks up a localized string similar to 🚀 Peppermint reverse-proxy started at {startDate} !.
         /// </summary>
         public static string Welcome {
             get {

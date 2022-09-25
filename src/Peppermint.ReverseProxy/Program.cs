@@ -9,8 +9,13 @@ namespace Peppermint.ReverseProxy
     /// <summary>
     /// Startup program.
     /// </summary>
-    public partial class Program
+    public class Program
     {
+        /// <summary>
+        /// Prevents a default instance of the <see cref="Program"/> class from being created.
+        /// </summary>
+        private Program() { }
+
         /// <summary>
         /// Defines the entry point of the application.
         /// </summary>
@@ -29,14 +34,20 @@ namespace Peppermint.ReverseProxy
 
             var app = builder.Build();
 
-            // Register the reverse proxy routes
             app.UseRouting();
+            app.UseWebSockets();
+            app.UseResponseCompression();
+            app.UseHttpLogging();
+            app.UseHealthChecks(Settings.HealthEndpoint);
+
+            // Register the reverse proxy routes
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapReverseProxy();
             });
 
-            app.Logger.LogInformation(message: Logs.Welcome);
+            app.Logger.LogInformation(message: Logs.Welcome,
+                DateTime.Now.ToShortTimeString());
             app.Run();
         }
     }
