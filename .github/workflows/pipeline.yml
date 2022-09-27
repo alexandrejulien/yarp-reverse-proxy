@@ -38,9 +38,6 @@ jobs:
       # uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94
       uses: docker/build-push-action@v3.1.1
       with:
-        # List of additional build contexts (e.g., name=path)
-        build-contexts: src/Peppermint.ReverseProxy
-        # Path to the Dockerfile
         file: src/Peppermint.ReverseProxy/Dockerfile
         push: true
         tags: alexandrejulien/peppermint-reverseproxy:latest
