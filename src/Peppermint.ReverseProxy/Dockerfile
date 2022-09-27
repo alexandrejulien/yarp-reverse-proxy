@@ -8,4 +8,4 @@ RUN dotnet publish /app/src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.cspr
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 COPY --from=build /app/Peppermint.ReverseProxy .
-ENTRYPOINT ["dotnet", "Peppmermint.ReverseProxy.dll"]
+ENTRYPOINT ["dotnet", "Peppermint.ReverseProxy.dll"]
