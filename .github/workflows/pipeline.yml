@@ -33,8 +33,13 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name : Build and push images
-      run : |
-         make push DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }} BUILD_ENV="DOCKER_BUILDKIT=1"
+    - name: Build and push Docker images
+      # You may pin to the exact commit or the version.
+      # uses: docker/build-push-action@c84f38281176d4c9cdb1626ffafcd6b3911b5d94
+      uses: docker/build-push-action@v3.1.1
+      with:
+        file: src/Peppermint.ReverseProxy/Dockerfile
+        push: true
+        tags: alexandrejulien/peppermint-reverseproxy:latest
         
 
