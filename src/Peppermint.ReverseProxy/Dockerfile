@@ -3,8 +3,7 @@ WORKDIR /app
 
 COPY . ./
 
-RUN dotnet restore
-RUN dotnet publish -c Release -o Peppermint.ReverseProxy
+RUN dotnet publish /app/src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj -c Release -o Peppermint.ReverseProxy
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
