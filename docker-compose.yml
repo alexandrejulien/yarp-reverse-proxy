@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  peppermint.reverseproxy:
+    image: ${DOCKER_REGISTRY-}peppermintreverseproxy
+    build:
+      context: .
+      dockerfile: src/Peppermint.ReverseProxy/Dockerfile
+  webapp:
+    image: dockersamples/static-site
+    container_name: webapp
+    ports:
+    - "8080:8080"

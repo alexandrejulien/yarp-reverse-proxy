@@ -18,6 +18,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9. deployment", "9. deploym
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. samples", "3. samples", "{3B94C13B-FC17-41B6-9FD6-42D473B426B4}"
+	ProjectSection(SolutionItems) = preProject
+		samples\PeppmermintReverseProxyContainer\appsettings.json = samples\PeppmermintReverseProxyContainer\appsettings.json
+		samples\PeppmermintReverseProxyContainer\docker-compose.yml = samples\PeppmermintReverseProxyContainer\docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{5C9D5B83-4B38-4818-9422-E62EE339F23B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,10 @@ Global
 		{3239DF7C-787D-41D0-8BAB-9331BB9203A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3239DF7C-787D-41D0-8BAB-9331BB9203A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3239DF7C-787D-41D0-8BAB-9331BB9203A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C9D5B83-4B38-4818-9422-E62EE339F23B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C9D5B83-4B38-4818-9422-E62EE339F23B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C9D5B83-4B38-4818-9422-E62EE339F23B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C9D5B83-4B38-4818-9422-E62EE339F23B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
