@@ -1,0 +1,17 @@
+# Peppermint YARP Reverse-Proxy docker compose example
+version: '3.8'
+
+services:
+  reverseproxy:
+    image: alexandrejulien/peppermint-reverseproxy
+    container_name: peppermint-reverseproxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+    - ./appsettings.json:/app/appsettings.json
+  webapp:
+     image: dockersamples/static-site
+     container_name: webapp
+     ports:
+     - "8080:8080"
