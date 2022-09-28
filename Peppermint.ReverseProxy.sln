@@ -5,7 +5,19 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Peppermint.ReverseProxy", "src\Peppermint.ReverseProxy\Peppermint.ReverseProxy.csproj", "{9C251F8D-9F1F-4B89-BA28-394814D5BD48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peppermint.ReverseProxy.Tests", "tests\Peppermint.ReverseProxy.Tests\Peppermint.ReverseProxy.Tests.csproj", "{3239DF7C-787D-41D0-8BAB-9331BB9203A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Peppermint.ReverseProxy.Tests", "tests\Peppermint.ReverseProxy.Tests\Peppermint.ReverseProxy.Tests.csproj", "{3239DF7C-787D-41D0-8BAB-9331BB9203A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. src", "1. src", "{5EAC4EC1-7B19-4439-A5C9-2D38A14C990D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. tests", "2. tests", "{0FAD5D2A-5A7C-4D9D-8A07-D731ED708480}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9. deployment", "9. deployment", "{79D5667C-14B1-4D86-B1FD-9A1F1E318057}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\pipeline.yml = .github\workflows\pipeline.yml
+		.github\workflows\pr.yaml = .github\workflows\pr.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. samples", "3. samples", "{3B94C13B-FC17-41B6-9FD6-42D473B426B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +36,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9C251F8D-9F1F-4B89-BA28-394814D5BD48} = {5EAC4EC1-7B19-4439-A5C9-2D38A14C990D}
+		{3239DF7C-787D-41D0-8BAB-9331BB9203A5} = {0FAD5D2A-5A7C-4D9D-8A07-D731ED708480}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FB64BA97-AD4A-491D-9F57-8CBD68459F3F}
