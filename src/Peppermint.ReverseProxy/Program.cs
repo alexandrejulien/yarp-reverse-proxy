@@ -48,7 +48,8 @@ namespace Peppermint.ReverseProxy
                 endpoints.MapReverseProxy();
             });
 
-            app.Logger.LogInformation(message: Logs.Welcome,
+            app.Logger.LogInformation(
+                message: Logs.Welcome,
                 DateTime.Now.ToShortTimeString());
             app.Run();
         }
