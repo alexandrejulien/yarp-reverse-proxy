@@ -39,6 +39,8 @@ namespace Peppermint.ReverseProxy
             app.UseResponseCompression();
             app.UseHttpLogging();
             app.UseHealthChecks(Settings.HealthEndpoint);
+            app.UseCertificateForwarding();
+            app.UseResponseCaching();
 
             // Register the reverse proxy routes
             app.UseEndpoints(endpoints =>
