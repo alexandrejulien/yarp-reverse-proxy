@@ -14,7 +14,7 @@ WORKDIR "/src/src/Peppermint.ReverseProxy"
 RUN dotnet build "Peppermint.ReverseProxy.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Peppermint.ReverseProxy.csproj" -c Release --runtime linux-x64 --self-contained true -p:PublishReadyToRun=true -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Peppermint.ReverseProxy.csproj" -c Release --runtime linux-x64 --self-contained true -p:PublishReadyToRun=true -o /app/publish
 
 FROM base AS final
 WORKDIR /app
