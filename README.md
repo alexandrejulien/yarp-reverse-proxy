@@ -65,7 +65,7 @@ It's a out of a box version of Microsoft Yarp Project library, intergrated into 
 The objective is to propose a yarp reverse proxy without having to go through a development stage and only the configuration of yarp
 
 Multiples platforms are availables : 
-- Portable (.NET 6 Runtime dependency)
+- Portable (.NET Runtime dependency)
 - Win (x86 / x64)
 - Linux (x64)
 - Mac OS (x64)
@@ -76,7 +76,7 @@ YARP offers :
 - HTTP/2 end to end and gPRC capabilties
 - Websockets
 - HttpSys delegation (integration with Http.Sys and IIS)
-- HTTP/3 will come with .NET 7 (only preview in .NET 6)
+- HTTP/3 with .NET 7 (only preview in .NET 6)
 - Loadbalancing
 - A/B Switches
 - Health Checks
