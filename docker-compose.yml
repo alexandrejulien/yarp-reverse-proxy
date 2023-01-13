@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  peppermint.reverseproxy:
+    image: ${DOCKER_REGISTRY-}peppermintreverseproxy
+    build:
+      context: .
+      dockerfile: src/Peppermint.ReverseProxy/Dockerfile
