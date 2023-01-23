@@ -54,8 +54,8 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       shell: powershell
       run: |
-        .\.sonar\scanner\dotnet-sonarscanner begin /k:"alexandrejulien_Peppermint.ReverseProxy" /o:"alexandrejulien" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+        .\.sonar\scanner\dotnet-sonarscanner begin /k:"alexandrejulien_Peppermint.ReverseProxy" /o:"alexandrejulien" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="**/opencover.xml"
         dotnet build ./Peppermint.ReverseProxy.sln --configuration Debug
-        dotnet test ./Peppermint.ReverseProxy.sln
+        dotnet test ./Peppermint.ReverseProxy.sln /p:CoverletOutputFormat=opencover /p:CoverletOutput=coverage 
         .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
   
