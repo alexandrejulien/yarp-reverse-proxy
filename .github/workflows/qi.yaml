@@ -20,9 +20,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.11
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
     - name: Cache SonarCloud packages
       uses: actions/cache@v1
       with:
@@ -42,19 +39,20 @@ jobs:
       run: |
         New-Item -Path .\.sonar\scanner -ItemType Directory
         dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+        dotnet tool install --global dotnet-coverage
     - name: Begin Analyze
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       shell: powershell
       run: |
-        .\.sonar\scanner\dotnet-sonarscanner begin /k:"alexandrejulien_Peppermint.ReverseProxy" /o:"alexandrejulien" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"  
+        .\.sonar\scanner\dotnet-sonarscanner begin /k:"alexandrejulien_Peppermint.ReverseProxy" /o:"alexandrejulien" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml  
     - name: Restore dependencies
       run: dotnet restore ./Peppermint.ReverseProxy.sln
     - name: Build
       run: dotnet build ./Peppermint.ReverseProxy.sln --no-restore --configuration Debug
     - name: Test
-      run: dotnet test ./Peppermint.ReverseProxy.sln --no-build --collect "Code Coverage" 
+      run: dotnet test ./Peppermint.ReverseProxy.sln --no-build --collect "dotnet test" -f xml  -o 'coverage.xml'
     - name: End Analyze
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
