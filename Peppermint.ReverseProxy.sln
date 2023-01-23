@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9. deployment", "9. deploym
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\pipeline.yml = .github\workflows\pipeline.yml
 		.github\workflows\pr.yaml = .github\workflows\pr.yaml
+		.github\workflows\qi.yml = .github\workflows\qi.yml
+		.github\workflows\release.yaml = .github\workflows\release.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. samples", "3. samples", "{3B94C13B-FC17-41B6-9FD6-42D473B426B4}"
