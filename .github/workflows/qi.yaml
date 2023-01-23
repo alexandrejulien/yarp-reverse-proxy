@@ -52,7 +52,8 @@ jobs:
     - name: Build
       run: dotnet build ./Peppermint.ReverseProxy.sln --no-restore --configuration Debug
     - name: Test
-      run: dotnet test ./Peppermint.ReverseProxy.sln --no-build --collect "dotnet test" -f xml  -o 'coverage.xml'
+      shell: powershell
+      run: dotnet-coverage collect 'dotnet test' -f xml  -o 'coverage.xml'
     - name: End Analyze
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
