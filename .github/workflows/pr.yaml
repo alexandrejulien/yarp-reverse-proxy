@@ -3,7 +3,7 @@ name: PR-CI
 on:
   push:
     branches:
-      - master # or the name of your main branch
+      - main # or the name of your main branch
   pull_request:
     branches: [ "main" ]
 
