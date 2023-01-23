@@ -1,9 +1,9 @@
-name: PR-CI
+name: QI
 
 on:
   push:
     branches:
-      - main # or the name of your main branch
+      - main
   pull_request:
     branches: [ "main" ]
 
@@ -56,4 +56,6 @@ jobs:
       run: |
         .\.sonar\scanner\dotnet-sonarscanner begin /k:"alexandrejulien_Peppermint.ReverseProxy" /o:"alexandrejulien" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
         dotnet build ./Peppermint.ReverseProxy.sln --configuration Debug
+        dotnet test ./Peppermint.ReverseProxy.sln
         .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+  
