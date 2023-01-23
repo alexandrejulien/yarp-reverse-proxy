@@ -6,7 +6,11 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=alexandrejulien_Peppermint.ReverseProxy&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=alexandrejulien_Peppermint.ReverseProxy)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=alexandrejulien_Peppermint.ReverseProxy&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=alexandrejulien_Peppermint.ReverseProxy)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=alexandrejulien_Peppermint.ReverseProxy&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=alexandrejulien_Peppermint.ReverseProxy)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=alexandrejulien_Peppermint.ReverseProxy&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=alexandrejulien_Peppermint.ReverseProxy)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=alexandrejulien_Peppermint.ReverseProxy&metric=coverage)](https://sonarcloud.io/summary/new_code?id=alexandrejulien_Peppermint.ReverseProxy)
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
