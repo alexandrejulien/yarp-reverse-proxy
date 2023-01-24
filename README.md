@@ -123,8 +123,8 @@ You have to unzip binairies and configure appsettings.json file
 
 ### Prerequisites
 
-You have to install ASP.NET 6 runtime.
-In case of using IIS, you have to install it before with ASP.NET 6 Bundle.
+You have to install ASP.NET 6, 7 runtime.
+In case of using IIS, you have to install it before with ASP.NET 6, 7 Bundle.
 
 ### Installation
 
