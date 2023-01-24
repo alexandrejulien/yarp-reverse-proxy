@@ -81,7 +81,7 @@ YARP offers :
 - HTTP/2 end to end and gPRC capabilties
 - Websockets
 - HttpSys delegation (integration with Http.Sys and IIS)
-- HTTP/3 with .NET 7 (only preview in .NET 6)
+- HTTP/3 with .NET 7
 - Loadbalancing
 - A/B Switches
 - Health Checks
