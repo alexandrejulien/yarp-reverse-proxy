@@ -22,7 +22,7 @@
 <h3 align="center">Peppermint Yarp reverse-proxy</h3>
 
   <p align="center">
-    Peppermint is simple and light .NET reverse proxy based on ASP.NET, Kestrel and implement YARP Project.
+    Peppermint is simple and light .NET reverse proxy based on ASP.NET, Kestrel and implement YARP Project by Microsoft (https://github.com/microsoft/reverse-proxy).
     <br />
     <a href="https://github.com/alexandrejulien/Peppermint.ReverseProxy"><strong>Explore the docs »</strong></a>
     <br />
