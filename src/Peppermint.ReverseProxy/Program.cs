@@ -43,14 +43,12 @@ namespace Peppermint.ReverseProxy
             app.UseResponseCaching();
 
             // Register the reverse proxy routes
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapReverseProxy();
-            });
+            app.MapReverseProxy();
 
             app.Logger.LogInformation(
                 message: Logs.Welcome,
                 DateTime.Now.ToShortTimeString());
+
             app.Run();
         }
     }
