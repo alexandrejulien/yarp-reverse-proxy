@@ -16,7 +16,7 @@ RUN dotnet build "Peppermint.ReverseProxy.csproj" -c Release -o /app/build
 FROM build AS publish
 RUN dotnet publish "Peppermint.ReverseProxy.csproj" -c Release --runtime linux-x64 --self-contained true -p:PublishReadyToRun=true -o /app/publish
 
-FROM alpine:latest AS alp
+FROM alpine:3.18.3 AS alp
 WORKDIR /app
 
 FROM alp AS final
