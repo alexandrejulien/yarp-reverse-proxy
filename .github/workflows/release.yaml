@@ -33,31 +33,31 @@ jobs:
     - name: Upload a Build Artifact Portable
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-${GITHUB_REF_NAME}-portable
+        name: Peppermint.ReverseProxy-${{ github.ref_name }}-portable
         path: app/Portable
     - name: Upload a Build Artifact Win-x86
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-${GITHUB_REF_NAME}-win-x86
+        name: Peppermint.ReverseProxy-${{ github.ref_name }}-win-x86
         path: app/Win-x86
     - name: Upload a Build Artifact Win-x64
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-${GITHUB_REF_NAME}-win-x64
+        name: Peppermint.ReverseProxy-${{ github.ref_name }}-win-x64
         path: app/Win-x64
     - name: Upload a Build Artifact Linux-arm64
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-${GITHUB_REF_NAME}-linux-arm64
+        name: Peppermint.ReverseProxy-${{ github.ref_name }}-linux-arm64
         path: app/Linux-arm64
     - name: Upload a Build Artifact Linux-x64
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-${GITHUB_REF_NAME}-linux-x64
+        name: Peppermint.ReverseProxy-${{ github.ref_name }}-linux-x64
         path: app/Linux-x64
     - name: Upload a Build Artifact MacOS
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-${GITHUB_REF_NAME}-darwin-x64
+        name: Peppermint.ReverseProxy-${{ github.ref_name }}-darwin-x64
         path: app/MacOS
 
