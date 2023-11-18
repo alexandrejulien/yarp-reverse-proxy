@@ -1,8 +1,9 @@
 name: Release-CI
 
 on:
-  release:
-    types: [created]
+  push:
+    tags:
+      - '**'
 
 jobs:
   build:
@@ -14,9 +15,9 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj
     - name: Build Portable
-      run: dotnet build --no-restore --configuration Release
+      run: dotnet build src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj --no-restore --configuration Release
     - name: Publish Portable
       run: dotnet publish src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj  -o app/Portable
     - name: Publish Win x86
@@ -32,31 +33,31 @@ jobs:
     - name: Upload a Build Artifact Portable
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-portable-dotnet
+        name: Peppermint.ReverseProxy-${GITHUB_REF_NAME}-portable
         path: app/Portable
     - name: Upload a Build Artifact Win-x86
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-win-x86
+        name: Peppermint.ReverseProxy-${GITHUB_REF_NAME}-win-x86
         path: app/Win-x86
     - name: Upload a Build Artifact Win-x64
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-winx64
+        name: Peppermint.ReverseProxy-${GITHUB_REF_NAME}-win-x64
         path: app/Win-x64
     - name: Upload a Build Artifact Linux-arm64
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-linux-arm64
+        name: Peppermint.ReverseProxy-${GITHUB_REF_NAME}-linux-arm64
         path: app/Linux-arm64
     - name: Upload a Build Artifact Linux-x64
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-linux-x64
+        name: Peppermint.ReverseProxy-${GITHUB_REF_NAME}-linux-x64
         path: app/Linux-x64
     - name: Upload a Build Artifact MacOS
       uses: actions/upload-artifact@v3.1.0
       with:
-        name: Peppermint.ReverseProxy-macos-x64
+        name: Peppermint.ReverseProxy-${GITHUB_REF_NAME}-darwin-x64
         path: app/MacOS
 
