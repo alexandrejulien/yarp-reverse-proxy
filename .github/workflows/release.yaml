@@ -14,9 +14,9 @@ jobs:
       with:
         dotnet-version: 7.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj
     - name: Build Portable
-      run: dotnet build --no-restore --configuration Release
+      run: dotnet build src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj --no-restore --configuration Release
     - name: Publish Portable
       run: dotnet publish src/Peppermint.ReverseProxy/Peppermint.ReverseProxy.csproj  -o app/Portable
     - name: Publish Win x86
