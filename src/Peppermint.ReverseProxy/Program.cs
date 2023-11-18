@@ -31,6 +31,10 @@ namespace Peppermint.ReverseProxy
             // Dependencies injection
             services.AddDefaultLogging(config);
             services.AddYarpReverseProxy(builder);
+            services.AddHttpLogging(httpLogger =>
+            {
+                httpLogger.CombineLogs = true;
+            });
 
             var app = builder.Build();
 
