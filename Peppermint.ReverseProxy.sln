@@ -13,9 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. tests", "2. tests", "{0F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "9. deployment", "9. deployment", "{79D5667C-14B1-4D86-B1FD-9A1F1E318057}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\pipeline.yml = .github\workflows\pipeline.yml
-		.github\workflows\pr.yaml = .github\workflows\pr.yaml
-		.github\workflows\qi.yml = .github\workflows\qi.yml
+		.github\workflows\pipeline.yaml = .github\workflows\pipeline.yaml
+		qi.yaml = qi.yaml
 		.github\workflows\release.yaml = .github\workflows\release.yaml
 	EndProjectSection
 EndProject
