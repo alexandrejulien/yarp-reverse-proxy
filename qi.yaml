@@ -1,0 +1,65 @@
+name: QI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  analysis:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 8.0.x
+    - name: Set up JDK 22
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.22
+    - name: Cache SonarCloud packages
+      uses: actions/cache@v1
+      with:
+        path: ~\sonar\cache
+        key: ${{ runner.os }}-sonar
+        restore-keys: ${{ runner.os }}-sonar
+    - name: Cache SonarCloud scanner
+      id: cache-sonar-scanner
+      uses: actions/cache@v1
+      with:
+        path: .\.sonar\scanner
+        key: ${{ runner.os }}-sonar-scanner
+        restore-keys: ${{ runner.os }}-sonar-scanner
+    - name: Install SonarCloud scanner
+      if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
+      shell: powershell
+      run: |
+        New-Item -Path .\.sonar\scanner -ItemType Directory
+        dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+        dotnet tool install --global dotnet-coverage
+    - name: Begin Analyze
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      shell: powershell
+      run: |
+        .\.sonar\scanner\dotnet-sonarscanner begin /k:"alexandrejulien_Peppermint.ReverseProxy" /o:"alexandrejulien" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml  
+    - name: Restore dependencies
+      run: dotnet restore ./Peppermint.ReverseProxy.sln
+    - name: Build
+      run: dotnet build ./Peppermint.ReverseProxy.sln --no-restore --configuration Debug
+    - name: Test
+      shell: powershell
+      run: |
+        dotnet tool install --global dotnet-coverage
+        dotnet-coverage collect 'dotnet test Peppermint.ReverseProxy.sln' -f xml  -o 'coverage.xml'
+    - name: End Analyze
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      shell: powershell
+      run: |
+        .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
