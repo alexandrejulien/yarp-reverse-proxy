@@ -81,7 +81,7 @@ YARP offers :
 - HTTP/2 end to end and gPRC capabilties
 - Websockets
 - HttpSys delegation (integration with Http.Sys and IIS)
-- HTTP/3 with .NET 7
+- HTTP/3 with .NET 8
 - Loadbalancing
 - A/B Switches
 - Health Checks
@@ -109,8 +109,9 @@ YARP reverse proxy offers good performances for many workloads but you will loos
 ### Built With
 
 * [ASP.NET Core](https://github.com/dotnet/aspnetcore)
-* [YARP 1.1](https://microsoft.github.io/reverse-proxy/)
+* [YARP 2.1](https://microsoft.github.io/reverse-proxy/)
 * [.NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+* [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -123,7 +124,7 @@ You have to unzip binairies and configure appsettings.json file
 
 ### Prerequisites
 
-You have to install ASP.NET 6, 7 runtime.
+You have to install ASP.NET 6, 7, 8 runtime.
 In case of using IIS, you have to install it before with ASP.NET 6, 7 Bundle.
 
 ### Installation
