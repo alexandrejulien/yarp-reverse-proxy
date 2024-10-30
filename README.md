@@ -109,8 +109,7 @@ YARP reverse proxy offers good performances for many workloads but you will loos
 ### Built With
 
 * [ASP.NET Core](https://github.com/dotnet/aspnetcore)
-* [YARP 2.1](https://microsoft.github.io/reverse-proxy/)
-* [.NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+* [YARP 2.2](https://microsoft.github.io/reverse-proxy/)
 * [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
