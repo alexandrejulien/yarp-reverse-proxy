@@ -81,7 +81,7 @@ YARP offers :
 - HTTP/2 end to end and gPRC capabilties
 - Websockets
 - HttpSys delegation (integration with Http.Sys and IIS)
-- HTTP/3 with .NET 8
+- HTTP/3 with .NET 8 and .NET 9
 - Loadbalancing
 - A/B Switches
 - Health Checks
@@ -123,8 +123,8 @@ You have to unzip binairies and configure appsettings.json file
 
 ### Prerequisites
 
-You have to install ASP.NET 6, 7, 8 runtime.
-In case of using IIS, you have to install it before with ASP.NET 6, 7 Bundle.
+You have to install ASP.NET 8 or 9 runtime.
+In case of using IIS, you have to install it before with ASP.NET 8, 9 Bundle.
 
 ### Installation
 
